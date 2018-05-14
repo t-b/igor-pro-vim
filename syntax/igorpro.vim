@@ -60,23 +60,24 @@ syn case ignore
 
 " Operations {{{
 syn keyword igorOperation APMath Abort AddFIFOData AddFIFOVectData AddMovieAudio
-syn keyword igorOperation AddMovieFrame AdoptFiles Append AppendImage
+syn keyword igorOperation AddMovieFrame AddWavesToBoxPlot AddWavesToViolinPlot
+syn keyword igorOperation AdoptFiles Append AppendBoxPlot AppendImage
 syn keyword igorOperation AppendLayoutObject AppendMatrixContour AppendText
 syn keyword igorOperation AppendToGizmo AppendToGraph AppendToLayout
-syn keyword igorOperation AppendToTable AppendXYZContour AutoPositionWindow
-syn keyword igorOperation AxonTelegraphFindServers BackgroundInfo Beep
-syn keyword igorOperation BoundingBall BoxSmooth BrowseURL BuildMenu Button CWT
-syn keyword igorOperation Chart CheckBox CheckDisplayed ChooseColor Close
-syn keyword igorOperation CloseHelp CloseMovie CloseProc ColorScale
-syn keyword igorOperation ColorTab2Wave Concatenate ControlBar ControlInfo
-syn keyword igorOperation ControlUpdate ConvertGlobalStringTextEncoding
-syn keyword igorOperation ConvexHull Convolve CopyFile CopyFolder CopyScales
-syn keyword igorOperation Correlate CreateAliasShortcut CreateBrowser Cross
-syn keyword igorOperation CtrlBackground CtrlFIFO CtrlNamedBackground Cursor
-syn keyword igorOperation CurveFit CustomControl DAQmx_AI_SetupReader
-syn keyword igorOperation DAQmx_AO_SetOutputs DAQmx_CTR_CountEdges
-syn keyword igorOperation DAQmx_CTR_OutputPulse DAQmx_CTR_Period
-syn keyword igorOperation DAQmx_CTR_PulseWidth DAQmx_DIO_Config
+syn keyword igorOperation AppendToTable AppendViolinPlot AppendXYZContour
+syn keyword igorOperation AutoPositionWindow AxonTelegraphFindServers
+syn keyword igorOperation BackgroundInfo Beep BoundingBall BoxSmooth BrowseURL
+syn keyword igorOperation BuildMenu Button CWT Chart CheckBox CheckDisplayed
+syn keyword igorOperation ChooseColor Close CloseHelp CloseMovie CloseProc
+syn keyword igorOperation ColorScale ColorTab2Wave Concatenate ControlBar
+syn keyword igorOperation ControlInfo ControlUpdate
+syn keyword igorOperation ConvertGlobalStringTextEncoding ConvexHull Convolve
+syn keyword igorOperation CopyDimLabels CopyFile CopyFolder CopyScales Correlate
+syn keyword igorOperation CreateAliasShortcut CreateBrowser Cross CtrlBackground
+syn keyword igorOperation CtrlFIFO CtrlNamedBackground Cursor CurveFit
+syn keyword igorOperation CustomControl DAQmx_AI_SetupReader DAQmx_AO_SetOutputs
+syn keyword igorOperation DAQmx_CTR_CountEdges DAQmx_CTR_OutputPulse
+syn keyword igorOperation DAQmx_CTR_Period DAQmx_CTR_PulseWidth DAQmx_DIO_Config
 syn keyword igorOperation DAQmx_DIO_WriteNewData DAQmx_Scan DAQmx_WaveformGen
 syn keyword igorOperation DPSS DSPDetrend DSPPeriodogram DWT Debugger
 syn keyword igorOperation DebuggerOptions DefaultFont DefaultGuiControls
@@ -88,31 +89,32 @@ syn keyword igorOperation DoXOPIdle DrawAction DrawArc DrawBezier DrawLine
 syn keyword igorOperation DrawOval DrawPICT DrawPoly DrawRRect DrawRect DrawText
 syn keyword igorOperation DrawUserShape Duplicate DuplicateDataFolder EdgeStats
 syn keyword igorOperation Edit ErrorBars EstimatePeakSizes Execute
-syn keyword igorOperation ExecuteScriptText ExperimentModified ExportGizmo
-syn keyword igorOperation Extract FBinRead FBinWrite FFT FIFO2Wave FIFOStatus
-syn keyword igorOperation FPClustering FReadLine FSetPos FStatus
-syn keyword igorOperation FTPCreateDirectory FTPDelete FTPDownload FTPUpload
-syn keyword igorOperation FastGaussTransform FastOp FilterFIR FilterIIR
-syn keyword igorOperation FindAPeak FindContour FindDuplicates FindLevel
-syn keyword igorOperation FindLevels FindPeak FindPointsInPoly FindRoots
-syn keyword igorOperation FindSequence FindValue FuncFit FuncFitMD GBLoadWave
-syn keyword igorOperation GISCreateVectorLayer GISGetRasterInfo
-syn keyword igorOperation GISGetRegisteredFileInfo GISGetVectorLayerInfo
-syn keyword igorOperation GISLoadRasterData GISLoadVectorData
-syn keyword igorOperation GISRasterizeVectorData GISRegisterFile
-syn keyword igorOperation GISTransformCoords GISUnRegisterFile GISWriteFieldData
-syn keyword igorOperation GISWriteGeometryData GISWriteRaster GPIB2 GPIBRead2
-syn keyword igorOperation GPIBReadBinary2 GPIBReadBinaryWave2 GPIBReadWave2
-syn keyword igorOperation GPIBWrite2 GPIBWriteBinary2 GPIBWriteBinaryWave2
-syn keyword igorOperation GPIBWriteWave2 GetAxis GetCamera GetFileFolderInfo
-syn keyword igorOperation GetGizmo GetLastUserMenuInfo GetMarquee GetMouse
-syn keyword igorOperation GetSelection GetWindow GraphNormal GraphWaveDraw
-syn keyword igorOperation GraphWaveEdit Grep GroupBox HDF5CloseFile
-syn keyword igorOperation HDF5CloseGroup HDF5ConvertColors HDF5CreateFile
-syn keyword igorOperation HDF5CreateGroup HDF5CreateLink HDF5Dump HDF5DumpErrors
-syn keyword igorOperation HDF5DumpState HDF5ListAttributes HDF5ListGroup
-syn keyword igorOperation HDF5LoadData HDF5LoadGroup HDF5LoadImage HDF5OpenFile
-syn keyword igorOperation HDF5OpenGroup HDF5SaveData HDF5SaveGroup HDF5SaveImage
+syn keyword igorOperation ExecuteScriptText ExperimentInfo ExperimentModified
+syn keyword igorOperation ExportGizmo Extract FBinRead FBinWrite FFT FGetPos
+syn keyword igorOperation FIFO2Wave FIFOStatus FMaxFlat FPClustering FReadLine
+syn keyword igorOperation FSetPos FStatus FTPCreateDirectory FTPDelete
+syn keyword igorOperation FTPDownload FTPUpload FastGaussTransform FastOp
+syn keyword igorOperation FilterFIR FilterIIR FindAPeak FindContour
+syn keyword igorOperation FindDuplicates FindLevel FindLevels FindPeak
+syn keyword igorOperation FindPointsInPoly FindRoots FindSequence FindValue
+syn keyword igorOperation FuncFit FuncFitMD GBLoadWave GISCreateVectorLayer
+syn keyword igorOperation GISGetRasterInfo GISGetRegisteredFileInfo
+syn keyword igorOperation GISGetVectorLayerInfo GISLoadRasterData
+syn keyword igorOperation GISLoadVectorData GISRasterizeVectorData
+syn keyword igorOperation GISRegisterFile GISTransformCoords GISUnRegisterFile
+syn keyword igorOperation GISWriteFieldData GISWriteGeometryData GISWriteRaster
+syn keyword igorOperation GPIB2 GPIBRead2 GPIBReadBinary2 GPIBReadBinaryWave2
+syn keyword igorOperation GPIBReadWave2 GPIBWrite2 GPIBWriteBinary2
+syn keyword igorOperation GPIBWriteBinaryWave2 GPIBWriteWave2 GetAxis GetCamera
+syn keyword igorOperation GetFileFolderInfo GetGizmo GetLastUserMenuInfo
+syn keyword igorOperation GetMarquee GetMouse GetSelection GetWindow GraphNormal
+syn keyword igorOperation GraphWaveDraw GraphWaveEdit Grep GroupBox
+syn keyword igorOperation HDF5CloseFile HDF5CloseGroup HDF5ConvertColors
+syn keyword igorOperation HDF5CreateFile HDF5CreateGroup HDF5CreateLink HDF5Dump
+syn keyword igorOperation HDF5DumpErrors HDF5DumpState HDF5FlushFile
+syn keyword igorOperation HDF5ListAttributes HDF5ListGroup HDF5LoadData
+syn keyword igorOperation HDF5LoadGroup HDF5LoadImage HDF5OpenFile HDF5OpenGroup
+syn keyword igorOperation HDF5SaveData HDF5SaveGroup HDF5SaveImage
 syn keyword igorOperation HDF5TestOperation HDF5UnlinkObject HDFInfo
 syn keyword igorOperation HDFReadImage HDFReadSDS HDFReadVset Hanning
 syn keyword igorOperation HideIgorMenus HideInfo HideProcedures HideTools
@@ -130,13 +132,14 @@ syn keyword igorOperation ITCSetDAC2 ITCSetGlobals2 ITCSetModes2 ITCSetState2
 syn keyword igorOperation ITCStartAcq2 ITCStopAcq2 ITCUpdateFIFOPosition2
 syn keyword igorOperation ITCUpdateFIFOPositionAll2 ITCWriteDigital2
 syn keyword igorOperation ImageAnalyzeParticles ImageBlend ImageBoundaryToMask
-syn keyword igorOperation ImageEdgeDetection ImageFileInfo ImageFilter
-syn keyword igorOperation ImageFocus ImageFromXYZ ImageGLCM ImageGenerateROIMask
-syn keyword igorOperation ImageHistModification ImageHistogram ImageInterpolate
-syn keyword igorOperation ImageLineProfile ImageLoad ImageMorphology
-syn keyword igorOperation ImageRegistration ImageRemoveBackground ImageRestore
-syn keyword igorOperation ImageRotate ImageSave ImageSeedFill ImageSkeleton3d
-syn keyword igorOperation ImageSnake ImageStats ImageThreshold ImageTransform
+syn keyword igorOperation ImageComposite ImageEdgeDetection ImageFileInfo
+syn keyword igorOperation ImageFilter ImageFocus ImageFromXYZ ImageGLCM
+syn keyword igorOperation ImageGenerateROIMask ImageHistModification
+syn keyword igorOperation ImageHistogram ImageInterpolate ImageLineProfile
+syn keyword igorOperation ImageLoad ImageMorphology ImageRegistration
+syn keyword igorOperation ImageRemoveBackground ImageRestore ImageRotate
+syn keyword igorOperation ImageSave ImageSeedFill ImageSkeleton3d ImageSnake
+syn keyword igorOperation ImageStats ImageThreshold ImageTransform
 syn keyword igorOperation ImageUnwrapPhase ImageWindow IndexSort InsertPoints
 syn keyword igorOperation Integrate Integrate2D IntegrateODE Interp3DPath
 syn keyword igorOperation Interpolate2 Interpolate3D JCAMPLoadWave
@@ -154,52 +157,57 @@ syn keyword igorOperation MFR_GetBrickletMetaData MFR_GetBrickletRawData
 syn keyword igorOperation MFR_GetReportTemplate MFR_GetResultFileMetaData
 syn keyword igorOperation MFR_GetResultFileName MFR_GetVernissageVersion
 syn keyword igorOperation MFR_GetVersion MFR_GetXOPErrorMessage
-syn keyword igorOperation MFR_OpenResultFile MLLoadWave Make MakeIndex
-syn keyword igorOperation MarkPerfTestTime MatrixConvolve MatrixCorr
-syn keyword igorOperation MatrixEigenV MatrixFilter MatrixGLM MatrixGaussJ
-syn keyword igorOperation MatrixInverse MatrixLLS MatrixLUBkSub MatrixLUD
-syn keyword igorOperation MatrixLUDTD MatrixLinearSolve MatrixLinearSolveTD
-syn keyword igorOperation MatrixMultiply MatrixOP MatrixSVBkSub MatrixSVD
-syn keyword igorOperation MatrixSchur MatrixSolve MatrixTranspose
-syn keyword igorOperation MeasureStyledText Modify ModifyBrowser ModifyCamera
-syn keyword igorOperation ModifyContour ModifyControl ModifyControlList
-syn keyword igorOperation ModifyFreeAxis ModifyGizmo ModifyGraph ModifyImage
-syn keyword igorOperation ModifyLayout ModifyPanel ModifyTable ModifyWaterfall
+syn keyword igorOperation MFR_OpenResultFile
+syn keyword igorOperation MLLoadWave Make MakeIndex MarkPerfTestTime
+syn keyword igorOperation MatrixConvolve MatrixCorr MatrixEigenV MatrixFilter
+syn keyword igorOperation MatrixGLM MatrixGaussJ MatrixInverse MatrixLLS
+syn keyword igorOperation MatrixLUBkSub MatrixLUD MatrixLUDTD MatrixLinearSolve
+syn keyword igorOperation MatrixLinearSolveTD MatrixMultiply MatrixOP
+syn keyword igorOperation MatrixSVBkSub MatrixSVD MatrixSchur MatrixSolve
+syn keyword igorOperation MatrixTranspose MeasureStyledText Modify ModifyBoxPlot
+syn keyword igorOperation ModifyBrowser ModifyCamera ModifyContour ModifyControl
+syn keyword igorOperation ModifyControlList ModifyFreeAxis ModifyGizmo
+syn keyword igorOperation ModifyGraph ModifyImage ModifyLayout ModifyPanel
+syn keyword igorOperation ModifyTable ModifyViolinPlot ModifyWaterfall
 syn keyword igorOperation MoveDataFolder MoveFile MoveFolder MoveString
 syn keyword igorOperation MoveSubwindow MoveVariable MoveWave MoveWindow
-syn keyword igorOperation MultiTaperPSD MultiThreadingControl NI4882
-syn keyword igorOperation NeuralNetworkRun NeuralNetworkTrain NewCamera
-syn keyword igorOperation NewDataFolder NewFIFO NewFIFOChan NewFreeAxis NewGizmo
-syn keyword igorOperation NewImage NewLayout NewMovie NewNotebook NewPanel
-syn keyword igorOperation NewPath NewWaterfall Note Notebook NotebookAction Open
-syn keyword igorOperation OpenHelp OpenNotebook Optimize PCA
-syn keyword igorOperation ParseOperationTemplate PathInfo PauseForUser
-syn keyword igorOperation PauseUpdate PlayMovie PlayMovieAction PlaySound
-syn keyword igorOperation PopupContextualMenu PopupMenu Preferences PrimeFactors
-syn keyword igorOperation Print PrintGraphs PrintLayout PrintNotebook
-syn keyword igorOperation PrintSettings PrintTable Project PulseStats
-syn keyword igorOperation PutScrapText Quit RatioFromNumber Redimension Remove
-syn keyword igorOperation RemoveContour RemoveFromGizmo RemoveFromGraph
-syn keyword igorOperation RemoveFromLayout RemoveFromTable RemoveImage
-syn keyword igorOperation RemoveLayoutObjects RemovePath Rename RenameDataFolder
-syn keyword igorOperation RenamePICT RenamePath RenameWindow ReorderImages
-syn keyword igorOperation ReorderTraces ReplaceText ReplaceWave Resample
-syn keyword igorOperation ResumeUpdate Reverse Rotate SQLHighLevelOp Save
-syn keyword igorOperation SaveData SaveExperiment SaveGraphCopy SaveNotebook
-syn keyword igorOperation SavePICT SavePackagePreferences SaveTableCopy
+syn keyword igorOperation MultiTaperPSD MultiThreadingControl NC_CloseFile
+syn keyword igorOperation NC_DumpErrors NC_Inquire NC_ListAttributes
+syn keyword igorOperation NC_ListObjects NC_LoadData NC_OpenFile NI4882
+syn keyword igorOperation NILoadWave NeuralNetworkRun NeuralNetworkTrain
+syn keyword igorOperation NewCamera NewDataFolder NewFIFO NewFIFOChan
+syn keyword igorOperation NewFreeAxis NewGizmo NewImage NewLayout NewMovie
+syn keyword igorOperation NewNotebook NewPanel NewPath NewWaterfall Note
+syn keyword igorOperation Notebook NotebookAction Open OpenHelp OpenNotebook
+syn keyword igorOperation Optimize PCA ParseOperationTemplate PathInfo
+syn keyword igorOperation PauseForUser PauseUpdate PlayMovie PlayMovieAction
+syn keyword igorOperation PlaySound PopupContextualMenu PopupMenu Preferences
+syn keyword igorOperation PrimeFactors Print PrintGraphs PrintLayout
+syn keyword igorOperation PrintNotebook PrintSettings PrintTable Project
+syn keyword igorOperation PulseStats PutScrapText Quit RatioFromNumber
+syn keyword igorOperation Redimension Remez Remove RemoveContour RemoveFromGizmo
+syn keyword igorOperation RemoveFromGraph RemoveFromLayout RemoveFromTable
+syn keyword igorOperation RemoveImage RemoveLayoutObjects RemovePath Rename
+syn keyword igorOperation RenameDataFolder RenamePICT RenamePath RenameWindow
+syn keyword igorOperation ReorderImages ReorderTraces ReplaceText ReplaceWave
+syn keyword igorOperation Resample ResumeUpdate Reverse Rotate SQLHighLevelOp
+syn keyword igorOperation STFT Save SaveData SaveExperiment SaveGizmoCopy
+syn keyword igorOperation SaveGraphCopy SaveNotebook SavePICT
+syn keyword igorOperation SavePackagePreferences SaveTableCopy
 syn keyword igorOperation SetActiveSubwindow SetAxis SetBackground
 syn keyword igorOperation SetDashPattern SetDataFolder SetDimLabel SetDrawEnv
-syn keyword igorOperation SetDrawLayer SetFileFolderInfo SetFormula SetIgorHook
-syn keyword igorOperation SetIgorMenuMode SetIgorOption SetMarquee
-syn keyword igorOperation SetProcessSleep SetRandomSeed SetScale SetVariable
-syn keyword igorOperation SetWaveLock SetWaveTextEncoding SetWindow
-syn keyword igorOperation ShowIgorMenus ShowInfo ShowTools Silent Sleep Slider
-syn keyword igorOperation Smooth SmoothCustom Sort SortColumns SoundInRecord
-syn keyword igorOperation SoundInSet SoundInStartChart SoundInStatus
-syn keyword igorOperation SoundInStopChart SoundLoadWave SoundSaveWave
-syn keyword igorOperation SphericalInterpolate SphericalTriangulate SplitString
-syn keyword igorOperation SplitWave Stack StackWindows StatsANOVA1Test
-syn keyword igorOperation StatsANOVA2NRTest StatsANOVA2RMTest StatsANOVA2Test
+syn keyword igorOperation SetDrawLayer SetFileFolderInfo SetFormula
+syn keyword igorOperation SetIdlePeriod SetIgorHook SetIgorMenuMode
+syn keyword igorOperation SetIgorOption SetMarquee SetProcessSleep SetRandomSeed
+syn keyword igorOperation SetScale SetVariable SetWaveLock SetWaveTextEncoding
+syn keyword igorOperation SetWindow ShowIgorMenus ShowInfo ShowTools Silent
+syn keyword igorOperation Sleep Slider Smooth SmoothCustom Sort SortColumns
+syn keyword igorOperation SoundInRecord SoundInSet SoundInStartChart
+syn keyword igorOperation SoundInStatus SoundInStopChart SoundLoadWave
+syn keyword igorOperation SoundSaveWave SphericalInterpolate
+syn keyword igorOperation SphericalTriangulate SplitString SplitWave Stack
+syn keyword igorOperation StackWindows StatsANOVA1Test StatsANOVA2NRTest
+syn keyword igorOperation StatsANOVA2RMTest StatsANOVA2Test
 syn keyword igorOperation StatsAngularDistanceTest StatsChiTest
 syn keyword igorOperation StatsCircularCorrelationTest StatsCircularMeans
 syn keyword igorOperation StatsCircularMoments StatsCircularTwoSampleTest
@@ -216,22 +224,23 @@ syn keyword igorOperation StatsSignTest StatsTTest StatsTukeyTest
 syn keyword igorOperation StatsVariancesTest StatsWRCorrelationTest
 syn keyword igorOperation StatsWatsonUSquaredTest StatsWatsonWilliamsTest
 syn keyword igorOperation StatsWheelerWatsonTest StatsWilcoxonRankTest String
-syn keyword igorOperation StructGet StructPut SumDimension SumSeries TDMLoadData
-syn keyword igorOperation TDMSaveData TabControl Tag TextBox ThreadGroupPutDF
-syn keyword igorOperation ThreadStart Tile TileWindows TitleBox ToCommandLine
-syn keyword igorOperation ToolsGrid Triangulate3d URLRequest Unwrap VDT2
-syn keyword igorOperation VDTClosePort2 VDTGetPortList2 VDTGetStatus2
-syn keyword igorOperation VDTOpenPort2 VDTOperationsPort2 VDTRead2
-syn keyword igorOperation VDTReadBinary2 VDTReadBinaryWave2 VDTReadHex2
-syn keyword igorOperation VDTReadHexWave2 VDTReadWave2 VDTTerminalPort2
-syn keyword igorOperation VDTWrite2 VDTWriteBinary2 VDTWriteBinaryWave2
-syn keyword igorOperation VDTWriteHex2 VDTWriteHexWave2 VDTWriteWave2
-syn keyword igorOperation VISAControl VISARead VISAReadBinary VISAReadBinaryWave
-syn keyword igorOperation VISAReadWave VISAWrite VISAWriteBinary
-syn keyword igorOperation VISAWriteBinaryWave VISAWriteWave ValDisplay Variable
-syn keyword igorOperation WaveMeanStdv WaveStats WaveTransform WignerTransform
-syn keyword igorOperation WindowFunction XLLoadWave cd dir fprintf printf pwd
-syn keyword igorOperation sprintf sscanf wfprintf
+syn keyword igorOperation StructFill StructGet StructPut SumDimension SumSeries
+syn keyword igorOperation TDMLoadData TDMSaveData TabControl Tag TextBox
+syn keyword igorOperation ThreadGroupPutDF ThreadStart TickWavesFromAxis Tile
+syn keyword igorOperation TileWindows TitleBox ToCommandLine ToolsGrid
+syn keyword igorOperation Triangulate3d URLRequest Unwrap VDT2 VDTClosePort2
+syn keyword igorOperation VDTGetPortList2 VDTGetStatus2 VDTOpenPort2
+syn keyword igorOperation VDTOperationsPort2 VDTRead2 VDTReadBinary2
+syn keyword igorOperation VDTReadBinaryWave2 VDTReadHex2 VDTReadHexWave2
+syn keyword igorOperation VDTReadWave2 VDTTerminalPort2 VDTWrite2
+syn keyword igorOperation VDTWriteBinary2 VDTWriteBinaryWave2 VDTWriteHex2
+syn keyword igorOperation VDTWriteHexWave2 VDTWriteWave2 VISAControl VISARead
+syn keyword igorOperation VISAReadBinary VISAReadBinaryWave VISAReadWave
+syn keyword igorOperation VISAWrite VISAWriteBinary VISAWriteBinaryWave
+syn keyword igorOperation VISAWriteWave ValDisplay Variable WaveMeanStdv
+syn keyword igorOperation WaveStats WaveTransform WignerTransform WindowFunction
+syn keyword igorOperation XLLoadWave cd dir fprintf printf pwd sprintf sscanf
+syn keyword igorOperation wfprintf
 " }}}
 
 " Functions {{{
@@ -241,30 +250,25 @@ syn keyword igorFunction AxonTelegraphAGetDataNum AxonTelegraphAGetDataString
 syn keyword igorFunction AxonTelegraphAGetDataStruct AxonTelegraphGetDataNum
 syn keyword igorFunction AxonTelegraphGetDataString AxonTelegraphGetDataStruct
 syn keyword igorFunction AxonTelegraphGetTimeoutMs AxonTelegraphSetTimeoutMs
-syn keyword igorFunction Besseli Besselj Besselk Bessely BinarySearch
-syn keyword igorFunction BinarySearchInterp CTabList CaptureHistory
-syn keyword igorFunction CaptureHistoryStart CheckName ChildWindowList
-syn keyword igorFunction CleanupName ContourInfo ContourNameList
+syn keyword igorFunction Base64Decode Base64Encode Besseli Besselj Besselk
+syn keyword igorFunction Bessely BinarySearch BinarySearchInterp CTabList
+syn keyword igorFunction CaptureHistory CaptureHistoryStart CheckName
+syn keyword igorFunction ChildWindowList CleanupName ContourInfo ContourNameList
 syn keyword igorFunction ContourNameToWaveRef ContourZ ControlNameList
 syn keyword igorFunction ConvertTextEncoding CountObjects CountObjectsDFR
 syn keyword igorFunction CreationDate CsrInfo CsrWave CsrWaveRef CsrXWave
-syn keyword igorFunction CsrXWaveRef DDERequestString DataFolderDir
-syn keyword igorFunction DataFolderExists DataFolderRefStatus
-syn keyword igorFunction DataFolderRefsEqual DateToJulian Dawson DimDelta
-syn keyword igorFunction DimOffset DimSize ExpConvExp ExpConvExpFit
-syn keyword igorFunction ExpConvExpFit1Shape ExpConvExpFit1ShapeBL
-syn keyword igorFunction ExpConvExpFitBL ExpGauss ExpGaussFit ExpGaussFit1Shape
-syn keyword igorFunction ExpGaussFit1ShapeBL ExpGaussFitBL FetchURL FindDimLabel
-syn keyword igorFunction FindListItem FontList FontSizeHeight
+syn keyword igorFunction CsrXWaveRef DataFolderDir DataFolderExists
+syn keyword igorFunction DataFolderRefStatus DataFolderRefsEqual DateToJulian
+syn keyword igorFunction Dawson DimDelta DimOffset DimSize Faddeeva FetchURL
+syn keyword igorFunction FindDimLabel FindListItem FontList FontSizeHeight
 syn keyword igorFunction FontSizeStringWidth FresnelCos FresnelSin FuncRefInfo
 syn keyword igorFunction FunctionInfo FunctionList FunctionPath
-syn keyword igorFunction GISGetAllFileFormats GISIgorGISVersion GISSRefsAreEqual
-syn keyword igorFunction Gauss Gauss1D Gauss2D GaussFit GaussFit1Width
-syn keyword igorFunction GaussFit1WidthBL GaussFitBL GetBrowserLine
-syn keyword igorFunction GetBrowserSelection GetDataFolder GetDataFolderDFR
-syn keyword igorFunction GetDefaultFont GetDefaultFontSize GetDefaultFontStyle
-syn keyword igorFunction GetDimLabel GetEnvironmentVariable GetErrMessage
-syn keyword igorFunction GetFormula GetIndependentModuleName GetIndexedObjName
+syn keyword igorFunction GISGetAllFileFormats GISSRefsAreEqual Gauss Gauss1D
+syn keyword igorFunction Gauss2D GetBrowserLine GetBrowserSelection
+syn keyword igorFunction GetDataFolder GetDataFolderDFR GetDefaultFont
+syn keyword igorFunction GetDefaultFontSize GetDefaultFontStyle GetDimLabel
+syn keyword igorFunction GetEnvironmentVariable GetErrMessage GetFormula
+syn keyword igorFunction GetIndependentModuleName GetIndexedObjName
 syn keyword igorFunction GetIndexedObjNameDFR GetKeyState GetRTErrMessage
 syn keyword igorFunction GetRTError GetRTLocInfo GetRTLocation GetRTStackInfo
 syn keyword igorFunction GetScrapText GetUserData GetWavesDataFolder
@@ -278,9 +282,8 @@ syn keyword igorFunction IndexedDir IndexedFile Inf Integrate1D Interp2D
 syn keyword igorFunction Interp3D ItemsInList JacobiCn JacobiSn JulianToDate
 syn keyword igorFunction Laguerre LaguerreA LaguerreGauss LambertW LayoutInfo
 syn keyword igorFunction LegendreA ListMatch ListToTextWave ListToWaveRefWave
-syn keyword igorFunction LorentzianFit LorentzianFit1Width LorentzianFit1WidthBL
-syn keyword igorFunction LorentzianFitBL LowerStr MCC_AutoBridgeBal
-syn keyword igorFunction MCC_AutoFastComp MCC_AutoPipetteOffset MCC_AutoSlowComp
+syn keyword igorFunction LowerStr MCC_AutoBridgeBal MCC_AutoFastComp
+syn keyword igorFunction MCC_AutoPipetteOffset MCC_AutoSlowComp
 syn keyword igorFunction MCC_AutoWholeCellComp MCC_GetBridgeBalEnable
 syn keyword igorFunction MCC_GetBridgeBalResist MCC_GetFastCompCap
 syn keyword igorFunction MCC_GetFastCompTau MCC_GetHolding MCC_GetHoldingEnable
@@ -432,10 +435,8 @@ syn keyword igorFunction ThreadReturnValue TraceFromPixel TraceInfo
 syn keyword igorFunction TraceNameList TraceNameToWaveRef TrimString URLDecode
 syn keyword igorFunction URLEncode UnPadString UniqueName
 syn keyword igorFunction UnsetEnvironmentVariable UpperStr VariableList Variance
-syn keyword igorFunction Voigt VoigtFit VoigtFit1Shape VoigtFit1Shape1Width
-syn keyword igorFunction VoigtFit1Shape1WidthBL VoigtFit1ShapeBL VoigtFitBL
-syn keyword igorFunction VoigtFunc WMFindWholeWord WaveCRC WaveDims WaveExists
-syn keyword igorFunction WaveInfo WaveList WaveMax WaveMin WaveName
+syn keyword igorFunction VoigtFunc VoigtPeak WaveCRC WaveDims WaveExists
+syn keyword igorFunction WaveHash WaveInfo WaveList WaveMax WaveMin WaveName
 syn keyword igorFunction WaveRefIndexed WaveRefIndexedDFR WaveRefWaveToList
 syn keyword igorFunction WaveRefsEqual WaveTextEncoding WaveType WaveUnits
 syn keyword igorFunction WhichListItem WinList WinName WinRecreation WinType
@@ -479,26 +480,37 @@ syn keyword igorFunction tango_get_dev_black_box tango_get_dev_cmd_list
 syn keyword igorFunction tango_get_dev_status tango_get_dev_timeout
 syn keyword igorFunction tango_get_error_stack tango_open_device
 syn keyword igorFunction tango_ping_device tango_read_attribute
-syn keyword igorFunction tango_read_attributes tango_resume_attr_monitor
-syn keyword igorFunction tango_set_attr_monitor_period tango_set_dev_timeout
-syn keyword igorFunction tango_start_attr_monitor tango_stop_attr_monitor
-syn keyword igorFunction tango_suspend_attr_monitor tango_write_attribute
-syn keyword igorFunction tango_write_attributes tanh ticks time trunc vcsr
-syn keyword igorFunction viAssertIntrSignal viAssertTrigger viAssertUtilSignal
-syn keyword igorFunction viClear viClose viDisableEvent viDiscardEvents
-syn keyword igorFunction viEnableEvent viFindNext viFindRsrc viGetAttribute
-syn keyword igorFunction viGetAttributeString viGpibCommand viGpibControlATN
-syn keyword igorFunction viGpibControlREN viGpibPassControl viGpibSendIFC viIn16
-syn keyword igorFunction viIn32 viIn8 viLock viMapAddress viMapTrigger
-syn keyword igorFunction viMemAlloc viMemFree viMoveIn16 viMoveIn32 viMoveIn8
-syn keyword igorFunction viMoveOut16 viMoveOut32 viMoveOut8 viOpen
+syn keyword igorFunction tango_read_attributes tango_reload_dev_interface
+syn keyword igorFunction tango_resume_attr_monitor tango_set_attr_monitor_period
+syn keyword igorFunction tango_set_dev_timeout tango_start_attr_monitor
+syn keyword igorFunction tango_stop_attr_monitor tango_suspend_attr_monitor
+syn keyword igorFunction tango_write_attribute tango_write_attributes tanh ticks
+syn keyword igorFunction time trunc vcsr viAssertIntrSignal viAssertTrigger
+syn keyword igorFunction viAssertUtilSignal viClear viClose viDisableEvent
+syn keyword igorFunction viDiscardEvents viEnableEvent viFindNext viFindRsrc
+syn keyword igorFunction viGetAttribute viGetAttributeString viGpibCommand
+syn keyword igorFunction viGpibControlATN viGpibControlREN viGpibPassControl
+syn keyword igorFunction viGpibSendIFC viIn16 viIn32 viIn8 viLock viMapAddress
+syn keyword igorFunction viMapTrigger viMemAlloc viMemFree viMoveIn16 viMoveIn32
+syn keyword igorFunction viMoveIn8 viMoveOut16 viMoveOut32 viMoveOut8 viOpen
 syn keyword igorFunction viOpenDefaultRM viOut16 viOut32 viOut8 viPeek16
 syn keyword igorFunction viPeek32 viPeek8 viPoke16 viPoke32 viPoke8 viRead
 syn keyword igorFunction viReadSTB viSetAttribute viSetAttributeString
 syn keyword igorFunction viStatusDesc viTerminate viUnlock viUnmapAddress
 syn keyword igorFunction viUnmapTrigger viUsbControlIn viUsbControlOut
 syn keyword igorFunction viVxiCommandQuery viWaitOnEvent viWrite wnoise x2pnt
-syn keyword igorFunction xcsr zcsr zeta
+syn keyword igorFunction xcsr zcsr zeromq_client_connect zeromq_client_connect
+syn keyword igorFunction zeromq_client_recv zeromq_client_recv
+syn keyword igorFunction zeromq_client_send zeromq_client_send
+syn keyword igorFunction zeromq_handler_start zeromq_handler_start
+syn keyword igorFunction zeromq_handler_stop zeromq_handler_stop
+syn keyword igorFunction zeromq_server_bind zeromq_server_bind
+syn keyword igorFunction zeromq_server_recv zeromq_server_recv
+syn keyword igorFunction zeromq_server_send zeromq_server_send zeromq_set
+syn keyword igorFunction zeromq_set zeromq_stop zeromq_stop
+syn keyword igorFunction zeromq_test_callfunction zeromq_test_callfunction
+syn keyword igorFunction zeromq_test_serializeWave zeromq_test_serializeWave
+syn keyword igorFunction zeta
 " }}}
 
 syn region  igorStringDQ  start=+"+ end=+"+ skip=+\\\\\|\\"+
