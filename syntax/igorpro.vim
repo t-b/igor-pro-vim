@@ -562,13 +562,18 @@ syn match   igorType      "^\s*\<wave\>"
 syn match   igorPreproc   "^#\(pragma\|define\|else\|elif\|endif\|ifdef\|ifndef\|if\|include\|undef\)"
 syn match   igorDelimiter "[(){}]\|\[\|\]"
 
-syn match   igorComment   "//.*"  contains=igorExtra
-syn match   igorExtra     "\(todo\|fixme\)"  contained
+syn match   igorTab       "[^^\t[:space:]]\zs\t\+"
 
-syn region  igorFunctionFold  start="^\s*\(\|static\s\+\|threadsafe\s\+\|static\s\+threadsafe\s\+\|threadsafe\s\+static\s\+\)function\(\s\+\|\/\)" end="^\s*end\(\s\+\|$\)" fold transparent keepend contains=ALL
-syn region  igorMacroFold     start="^\s*\(macro\|window\|proc\)\s\+" end="^\s*\(end\|endmacro\)\(\s\+\|$\)" fold transparent keepend contains=ALL
-syn region  igorStructureFold start="^\s*\(\|static\s\+\)structure " end="^\s*endstructure" fold transparent keepend contains=ALL
-syn region  igorPictureFold start="^\s*\(\|static\s\+\)picture " end="^\s*end" fold transparent keepend contains=ALL
+syn match   igorComment   "//.*"  contains=igorTab,igorExtra,igorRst
+syn match   igorExtra     "\(todo\|fixme\)" contained
+syn region  igorRst start="\\rst" end="\\endrst" contained
+
+syn region  igorFunctionFold  start="^\s*\(\|static\s\+\|threadsafe\s\+\|static\s\+threadsafe\s\+\|threadsafe\s\+static\s\+\)function\(\s\+\|\/\)" end="^\s*end\(\s\+\|$\)" fold transparent keepend contains=ALLBUT,igorExtra
+syn region  igorMacroFold     start="^\s*\(macro\|window\|proc\)\s\+" end="^\s*\(end\|endmacro\)\(\s\+\|$\)" fold transparent keepend contains=ALLBUT,igorExtra
+syn region  igorStructureFold start="^\s*\(\|static\s\+\)structure " end="^\s*endstructure" fold transparent keepend contains=ALLBUT,igorExtra
+syn region  igorPictureFold start="^\s*\(\|static\s\+\)picture " end="^\s*end" fold transparent keepend contains=ALLBUT,igorExtra
+
+hi igorTab guibg=#FFD0D0 ctermbg=lightred
 
 if exists("igorpro_default_colors")
   hi igorStructure guifg=#0000FF ctermfg=4*
@@ -589,6 +594,7 @@ if exists("igorpro_default_colors")
   hi igorStringQ   guifg=#009C00 ctermfg=2*
   hi igorComment   guifg=#FF0000 ctermfg=1*
   hi link igorExtra   Todo
+  hi link igorRst   igorComment
 else
   hi link igorOperation Function
   hi link igorFunction  Function
@@ -612,6 +618,7 @@ else
   hi link igorDelimiter Delimiter
   hi link igorComment   Comment
   hi link igorExtra     Todo
+  hi link igorRst   igorComment
 endif
 
 let b:current_syntax = "igorpro"
