@@ -547,7 +547,7 @@ syn keyword igorRepeat    for endfor do while
 syn keyword igorLabel     case default
 syn match   igorSpecial   "\(V\|S\)_[a-zA-Z]\+" " auto variables from operations like V_flag, S_names etc.
 
-syn keyword igorDefine    threadsafe static macro window function endmacro end contained
+syn keyword igorDefine    override threadsafe static macro window function endmacro end contained
 " we must also highlight end as closing for menu and submenu (which we don't fold)
 syn keyword igorDefine    menu submenu end Prompt DoPrompt WaveClear
 syn match   igorDefine    "proc\s\+[^=]"he=e-1 contained
@@ -568,7 +568,7 @@ syn match   igorComment   "//.*"  contains=igorTab,igorExtra,igorRst
 syn match   igorExtra     "\(todo\|fixme\)" contained
 syn region  igorRst start="\\rst" end="\\endrst" contained
 
-syn region  igorFunctionFold  start="^\s*\(\|static\s\+\|threadsafe\s\+\|static\s\+threadsafe\s\+\|threadsafe\s\+static\s\+\)function\(\s\+\|\/\)" end="^\s*end\(\s\+\|$\)" fold transparent keepend contains=ALLBUT,igorExtra
+syn region  igorFunctionFold  start="^\s*\(\|override\s\+\)\(\|static\s\+\|threadsafe\s\+\|static\s\+threadsafe\s\+\|threadsafe\s\+static\s\+\)function\(\s\+\|\/\)" end="^\s*end\(\s\+\|$\)" fold transparent keepend contains=ALLBUT,igorExtra
 syn region  igorMacroFold     start="^\s*\(macro\|window\|proc\)\s\+" end="^\s*\(end\|endmacro\)\(\s\+\|$\)" fold transparent keepend contains=ALLBUT,igorExtra
 syn region  igorStructureFold start="^\s*\(\|static\s\+\)structure " end="^\s*endstructure" fold transparent keepend contains=ALLBUT,igorExtra
 syn region  igorPictureFold start="^\s*\(\|static\s\+\)picture " end="^\s*end" fold transparent keepend contains=ALLBUT,igorExtra
