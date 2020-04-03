@@ -554,7 +554,7 @@ syn match   igorDefine    "proc\s\+[^=]"he=e-1 contained
 
 syn keyword igorType      constant strconstant variable string svar
 syn keyword igorType      nvar funcref dfref
-syn keyword igorType      char uchar int16 uint16 int32 uint32 int64 uint64 float double
+syn keyword igorType      char uchar int int16 uint16 int32 uint32 int64 uint64 float double complex
 " hack, highlight static also in front of Constant and StrConstant
 syn match   igorType      "static\s\+\(StrConstant\|Constant\)"
 syn match   igorType      "^\s*\<wave\>"
