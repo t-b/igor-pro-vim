@@ -84,8 +84,12 @@ endif
 
 syn case ignore
 
+" Note to future self:
+" APMath and matrixOP need to be removed from igorOperation as they are
+" handled in igorAPMath/igorMatOp
+
 " Operations {{{
-syn keyword igorOperation APMath Abort AddFIFOData AddFIFOVectData AddMovieAudio
+syn keyword igorOperation Abort AddFIFOData AddFIFOVectData AddMovieAudio
 syn keyword igorOperation AddMovieFrame AddWavesToBoxPlot AddWavesToViolinPlot
 syn keyword igorOperation AdoptFiles Append AppendBoxPlot AppendImage
 syn keyword igorOperation AppendLayoutObject AppendMatrixContour AppendText
@@ -203,7 +207,7 @@ syn keyword igorOperation MatrixCorr MatrixEigenV MatrixFactor MatrixFilter
 syn keyword igorOperation MatrixGLM MatrixGaussJ MatrixInverse MatrixLLS
 syn keyword igorOperation MatrixLUBkSub MatrixLUD MatrixLUDTD MatrixLinearSolve
 syn keyword igorOperation MatrixLinearSolveTD MatrixMultiply MatrixMultiplyAdd
-syn keyword igorOperation MatrixOP MatrixReverseBalance MatrixSVBkSub MatrixSVD
+syn keyword igorOperation MatrixReverseBalance MatrixSVBkSub MatrixSVD
 syn keyword igorOperation MatrixSchur MatrixSolve MatrixSparse MatrixTranspose
 syn keyword igorOperation MeasureStyledText Modify ModifyBoxPlot ModifyBrowser
 syn keyword igorOperation ModifyCamera ModifyContour ModifyControl
@@ -615,52 +619,68 @@ syn region  igorMacroFold     start="^\s*\(macro\|window\|proc\)\s\+" end="^\s*\
 syn region  igorStructureFold start="^\s*\(\|static\s\+\)structure " end="^\s*endstructure" fold transparent keepend contains=ALLBUT,igorExtra
 syn region  igorPictureFold start="^\s*\(\|static\s\+\)picture " end="^\s*end" fold transparent keepend contains=ALLBUT,igorExtra
 
+" Idea: Define a region and only within that region the syntax groups
+syn keyword igorSpecOp APMath matrixOP contained
+syn region  igorAPMath matchgroup=igorSpecOp start="^\s*\<APMath\>" end="$" oneline contains=igorAPMathFunc,igorComment,igorSpec
+syn keyword igorAPMathFunc sqrt cbrt sin cos tan asin acos atan atan2 log log10 exp pow sinh cosh tanh asinh acosh atanh factorial pi nan sgn floor ceil gcd lcd comp sum mean variance skew kurtosis binomial bernoulli Stirling2 factorialPower contained
+
+syn region  igorMatOp matchgroup=igorSpecOp start="^\s*\<matrixOP\>" end="$" oneline contains=igorMatOpFunc,igorComment,igorSpec
+syn keyword igorMatOpFunc cmplx identity Trace Det inv nan diagonal conj exp pi e sin cos tan sqrt asin acos atan atan2 powr powc fft ifft abs normalize equal greater numType log ln real imag p2rect r2polar phase mag floor ceil round diagrc sum rec sumsqr tridiag convolve correlate row col magsqr subtractmean synccorrelation asynccorrelation normalizerows normalizecols chirpz chirpzf beam frobenius wavemap wavemap2 sgn shiftvector sumcols varcols replace replacenans minVal maxVal clip scale rotateRows rotateCols transposeVol sumRows sumBeams waveIndexSet mean numRows numCols numPoints crosscovar chol imageRestore rowRepeat colRepeat INF Const MeanCols Integrate scaleCols mod tensorProduct chunk ^^layer waveLayers waveChunks wavePoints rotateLayers rotateChunks int8 uint8 int16 uint16 int32 uint32 fp32 fp64 limitProduct catRows catCols bitShift bitAnd bitOr bitXor bitNot cosh sinh tanh hypot erf erfc InverseErf InverseErfc ZeroMat setOffDiag setCol setRow getDiag productRows productCols productRow productCol productDiagonal setNaNs maxAB acosh asinh atanh forwardSub backwardSub subrange redimension maxCols averageCols scaleRows insertMat intMatrix subWaveC subWaveR vwl quat quatToMatrix quatToAxis quatToEuler axisToQuat matrixToQuat slerp reverseCol reverseCols reverseRow reverseRows within outerProduct cbrt fst fct fsst fsct fsst2 fsct2 minCols covariance maxRows minRows indexRows indexCols spliceCols zapNaNs zapINFs addRows addCols waveX waveY waveZ waveT DecimateMinMax Select SQ VarBeams SumND FWHT KronProd bitReverseCol setColsRange layer layerStack maxMagAB minAB minMagAB gammaln gamma expIntegralE1 greaterOrEqual log2 normP oneNorm expm contained
+
 hi igorTab guibg=#FFD0D0 ctermbg=lightred
 
 if exists("igorpro_default_colors")
-  hi igorStructure guifg=#0000FF ctermfg=4*
-  hi igorPicture   guifg=#0000FF ctermfg=4*
-  hi igorConstant  guifg=#C34E00 ctermfg=3*
-  hi igorDefine    guifg=#0000FF ctermfg=4*
-  hi igorType      guifg=#0000FF ctermfg=4*
-  hi igorCond      guifg=#0000FF ctermfg=4*
-  hi igorMod       guifg=#0000FF ctermfg=4*
-  hi igorStat      guifg=#0000FF ctermfg=4*
-  hi igorRepeat    guifg=#0000FF ctermfg=4*
-  hi igorLabel     guifg=#0000FF ctermfg=4*
+  hi igorStructure  guifg=#0000FF ctermfg=4*
+  hi igorPicture    guifg=#0000FF ctermfg=4*
+  hi igorConstant   guifg=#C34E00 ctermfg=3*
+  hi igorDefine     guifg=#0000FF ctermfg=4*
+  hi igorType       guifg=#0000FF ctermfg=4*
+  hi igorCond       guifg=#0000FF ctermfg=4*
+  hi igorMod        guifg=#0000FF ctermfg=4*
+  hi igorStat       guifg=#0000FF ctermfg=4*
+  hi igorRepeat     guifg=#0000FF ctermfg=4*
+  hi igorLabel      guifg=#0000FF ctermfg=4*
 
-  hi igorFunction  guifg=#C34E00 ctermfg=3*
-  hi igorOperation guifg=#007575 ctermfg=4*
-  hi igorPreProc   guifg=#CC00A3 ctermfg=5*
-  hi igorStringDQ  guifg=#009C00 ctermfg=2*
-  hi igorStringQ   guifg=#009C00 ctermfg=2*
-  hi igorComment   guifg=#FF0000 ctermfg=1*
-  hi link igorExtra   Todo
-  hi link igorRst   igorComment
+  hi igorFunction   guifg=#C34E00 ctermfg=3*
+  hi igorOperation  guifg=#007575 ctermfg=4*
+  hi igorSpecOp     guifg=#007575 ctermfg=4*
+  hi igorPreProc    guifg=#CC00A3 ctermfg=5*
+  hi igorStringDQ   guifg=#009C00 ctermfg=2*
+  hi igorStringQ    guifg=#009C00 ctermfg=2*
+  hi igorComment    guifg=#FF0000 ctermfg=1*
+  hi igorAPMathFunc guifg=#8080ff ctermfg=3*
+  hi igorMatOpFunc  guifg=#8080ff ctermfg=3*
+
+  hi link igorExtra  Todo
+  hi link igorRst    igorComment
 else
-  hi link igorOperation Function
-  hi link igorFunction  Function
-  hi link igorPicture   Function
+  hi link igorOperation  Function
+  hi link igorFunction   Function
+  hi link igorPicture    Function
+  hi link igorAPMathFunc Function
+  hi link igorMatOpFunc  Function
 
-  hi link igorStringDQ  String
-  hi link igorStringQ   String
+  hi link igorStringDQ   String
+  hi link igorStringQ    String
 
-  hi link igorStructure Structure
-  hi link igorConstant  Constant
-  hi link igorCond      Conditional
-  hi link igorStat      Statement
-  hi link igorRepeat    Repeat
-  hi link igorLabel     Label
-  hi link igorSpecial   Special
-  hi link igorMod       Special
+  hi link igorStructure  Structure
+  hi link igorConstant   Constant
+  hi link igorCond       Conditional
+  hi link igorStat       Statement
+  hi link igorRepeat     Repeat
+  hi link igorLabel      Label
+  hi link igorSpecial    Special
+  hi link igorMod        Special
 
-  hi link igorDefine    Define
-  hi link igorType      Type
-  hi link igorPreproc   PreProc
-  hi link igorDelimiter Delimiter
-  hi link igorComment   Comment
-  hi link igorExtra     Todo
-  hi link igorRst   igorComment
+  hi link igorDefine     Define
+  hi link igorType       Type
+  hi link igorPreproc    PreProc
+  hi link igorDelimiter  Delimiter
+  hi link igorComment    Comment
+  hi link igorExtra      Todo
+  hi link igorRst        igorComment
+
+  hi link igorSpecOp Function
 endif
 
 let b:current_syntax = "igorpro"
