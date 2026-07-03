@@ -614,10 +614,10 @@ syn match   igorComment   "//.*"  contains=igorTab,igorExtra,igorRst
 syn match   igorExtra     "\(todo\|fixme\)" contained
 syn region  igorRst start="\\rst" end="\\endrst" contained
 
-syn region  igorFunctionFold  start="^\s*\(\|override\s\+\)\(\|static\s\+\|threadsafe\s\+\|static\s\+threadsafe\s\+\|threadsafe\s\+static\s\+\)function\(\s\+\|\/\)" end="^\s*end\(\s\+\|$\)" fold transparent keepend contains=ALLBUT,igorExtra
-syn region  igorMacroFold     start="^\s*\(macro\|window\|proc\)\s\+" end="^\s*\(end\|endmacro\)\(\s\+\|$\)" fold transparent keepend contains=ALLBUT,igorExtra
-syn region  igorStructureFold start="^\s*\(\|static\s\+\)structure " end="^\s*endstructure" fold transparent keepend contains=ALLBUT,igorExtra
-syn region  igorPictureFold start="^\s*\(\|static\s\+\)picture " end="^\s*end" fold transparent keepend contains=ALLBUT,igorExtra
+syn region  igorFunctionFold  start="^\s*\(\|override\s\+\)\(\|static\s\+\|threadsafe\s\+\|static\s\+threadsafe\s\+\|threadsafe\s\+static\s\+\)function\(\s\+\|\/\)" end="^\s*end\(\s\+\|$\)" fold transparent keepend contains=ALLBUT,igorExtra,igorAPMathFunc,igorMatOpFunc
+syn region  igorMacroFold     start="^\s*\(macro\|window\|proc\)\s\+" end="^\s*\(end\|endmacro\)\(\s\+\|$\)" fold transparent keepend contains=ALLBUT,igorExtra,igorAPMathFunc,igorMatOpFunc
+syn region  igorStructureFold start="^\s*\(\|static\s\+\)structure " end="^\s*endstructure" fold transparent keepend contains=ALLBUT,igorExtra,igorAPMathFunc,igorMatOpFunc
+syn region  igorPictureFold start="^\s*\(\|static\s\+\)picture " end="^\s*end" fold transparent keepend contains=ALLBUT,igorExtra,igorAPMathFunc,igorMatOpFunc
 
 " Idea: Define a region and only within that region the syntax groups
 syn keyword igorSpecOp APMath matrixOP contained
